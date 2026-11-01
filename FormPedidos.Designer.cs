@@ -45,6 +45,7 @@
             this.txtNomeContato = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,7 +210,7 @@
             // 
             this.btnLimpar.Location = new System.Drawing.Point(195, 464);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 34);
+            this.btnLimpar.Size = new System.Drawing.Size(75, 31);
             this.btnLimpar.TabIndex = 16;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -217,7 +218,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(277, 467);
+            this.btnGuardar.Location = new System.Drawing.Point(276, 464);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(79, 31);
             this.btnGuardar.TabIndex = 17;
@@ -225,11 +226,22 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(361, 464);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(82, 31);
+            this.btnAtualizar.TabIndex = 18;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 502);
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.txtNomeContato);
@@ -275,5 +287,6 @@
         private System.Windows.Forms.TextBox txtNomeContato;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }

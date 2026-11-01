@@ -51,5 +51,15 @@ namespace ServiceTrack.Client.Services
 
             return resposta.IsSuccessStatusCode;
         }
+
+        // PUT: api/Pedidos/{id} — atualiza um pedido existente.
+        public static async Task<bool> AtualizarPedidoAsync(
+            int id, Pedido pedidoAtualizado)
+        {
+            var resposta = await _httpClient.PutAsJsonAsync(
+                $"api/Pedidos/{id}", pedidoAtualizado);
+
+            return resposta.IsSuccessStatusCode;
+        }
     }
 }

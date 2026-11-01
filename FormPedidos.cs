@@ -183,5 +183,84 @@ namespace ServiceTrack.Client
                     MessageBoxIcon.Error);
             }
         }
+
+        private async void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            // Exige a seleção de um pedido antes da atualização.
+            if (_pedidoIdSelecionado == 0)
+            {
+                MessageBox.Show(
+                    "Selecione um pedido na grelha antes de atualizar!",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // Verifica os campos obrigatórios.
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text) ||
+                string.IsNullOrWhiteSpace(txtDescricao.Text) ||
+                string.IsNullOrWhiteSpace(txtNomeContato.Text) ||
+                string.IsNullOrWhiteSpace(txtEmailContato.Text) ||
+                string.IsNullOrWhiteSpace(txtCategoria.Text) ||
+                cmbPrioridade.SelectedItem == null ||
+                cmbEstado.SelectedItem == null)
+            {
+                MessageBox.Show(
+                    "Preencha todos os campos!",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            var pedidoAtualizado = new Pedido
+            {
+                Id = _pedidoIdSelecionado,
+                Titulo = txtTitulo.Text.Trim(),
+                Descricao = txtDescricao.Text.Trim(),
+                NomeContato = txtNomeContato.Text.Trim(),
+                EmailContato = txtEmailContato.Text.Trim(),
+                Categoria = txtCategoria.Text.Trim(),
+                Prioridade = cmbPrioridade.SelectedItem.ToString(),
+                Estado = cmbEstado.SelectedItem.ToString()
+            };
+
+            try
+            {
+                bool sucesso = await ApiService.AtualizarPedidoAsync(
+                    _pedidoIdSelecionado, pedidoAtualizado);
+
+                if (sucesso)
+                {
+                    MessageBox.Show(
+                        "Pedido atualizado com sucesso!",
+                        "Sucesso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    LimparCampos();
+                    await CarregarListaPedidos();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Não foi possível atualizar o pedido. Verifique os dados e se o pedido ainda existe.",
+                        "Erro",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Erro de comunicação com a API",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
     }
 }
