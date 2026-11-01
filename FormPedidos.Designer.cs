@@ -61,7 +61,7 @@
             this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvPedidos.BackgroundColor = System.Drawing.Color.White;
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedidos.Location = new System.Drawing.Point(195, 236);
+            this.dgvPedidos.Location = new System.Drawing.Point(198, 278);
             this.dgvPedidos.MultiSelect = false;
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
@@ -69,8 +69,8 @@
             this.dgvPedidos.RowHeadersWidth = 62;
             this.dgvPedidos.RowTemplate.Height = 28;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(458, 231);
-            this.dgvPedidos.TabIndex = 0;
+            this.dgvPedidos.Size = new System.Drawing.Size(455, 206);
+            this.dgvPedidos.TabIndex = 12;
             this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellClick);
             this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -86,11 +86,13 @@
             // 
             // txtTitulo
             // 
+            this.txtTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTitulo.Location = new System.Drawing.Point(195, 9);
             this.txtTitulo.MaxLength = 255;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(458, 26);
-            this.txtTitulo.TabIndex = 2;
+            this.txtTitulo.TabIndex = 0;
             // 
             // label2
             // 
@@ -103,18 +105,21 @@
             // 
             // txtDescricao
             // 
+            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescricao.Location = new System.Drawing.Point(195, 41);
-            this.txtDescricao.MaxLength = 255;
+            this.txtDescricao.MaxLength = 0;
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescricao.Size = new System.Drawing.Size(458, 26);
-            this.txtDescricao.TabIndex = 4;
+            this.txtDescricao.Size = new System.Drawing.Size(458, 70);
+            this.txtDescricao.TabIndex = 1;
+            this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 73);
+            this.label3.Location = new System.Drawing.Point(49, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 20);
             this.label3.TabIndex = 5;
@@ -124,7 +129,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(51, 107);
+            this.label4.Location = new System.Drawing.Point(49, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 20);
             this.label4.TabIndex = 7;
@@ -133,16 +138,18 @@
             // 
             // txtEmailContato
             // 
-            this.txtEmailContato.Location = new System.Drawing.Point(195, 102);
+            this.txtEmailContato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmailContato.Location = new System.Drawing.Point(195, 149);
             this.txtEmailContato.MaxLength = 255;
             this.txtEmailContato.Name = "txtEmailContato";
             this.txtEmailContato.Size = new System.Drawing.Size(458, 26);
-            this.txtEmailContato.TabIndex = 8;
+            this.txtEmailContato.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(109, 133);
+            this.label5.Location = new System.Drawing.Point(108, 183);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 20);
             this.label5.TabIndex = 9;
@@ -150,16 +157,19 @@
             // 
             // txtCategoria
             // 
-            this.txtCategoria.Location = new System.Drawing.Point(195, 133);
+            this.txtCategoria.AcceptsTab = true;
+            this.txtCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCategoria.Location = new System.Drawing.Point(195, 180);
             this.txtCategoria.MaxLength = 50;
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(458, 26);
-            this.txtCategoria.TabIndex = 10;
+            this.txtCategoria.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(109, 165);
+            this.label6.Location = new System.Drawing.Point(105, 212);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 11;
@@ -167,21 +177,23 @@
             // 
             // cmbPrioridade
             // 
+            this.cmbPrioridade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbPrioridade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPrioridade.FormattingEnabled = true;
             this.cmbPrioridade.Items.AddRange(new object[] {
             "Baixa",
             "Normal",
             "Alta"});
-            this.cmbPrioridade.Location = new System.Drawing.Point(195, 162);
+            this.cmbPrioridade.Location = new System.Drawing.Point(195, 209);
             this.cmbPrioridade.Name = "cmbPrioridade";
             this.cmbPrioridade.Size = new System.Drawing.Size(458, 28);
-            this.cmbPrioridade.TabIndex = 12;
+            this.cmbPrioridade.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(126, 200);
+            this.label7.Location = new System.Drawing.Point(125, 247);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 20);
             this.label7.TabIndex = 13;
@@ -189,71 +201,85 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Items.AddRange(new object[] {
             "Aberto",
             "Em curso",
             "Resolvido"});
-            this.cmbEstado.Location = new System.Drawing.Point(195, 197);
+            this.cmbEstado.Location = new System.Drawing.Point(195, 244);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(458, 28);
-            this.cmbEstado.TabIndex = 14;
+            this.cmbEstado.TabIndex = 6;
             // 
             // txtNomeContato
             // 
-            this.txtNomeContato.Location = new System.Drawing.Point(195, 70);
+            this.txtNomeContato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNomeContato.Location = new System.Drawing.Point(195, 117);
             this.txtNomeContato.MaxLength = 255;
             this.txtNomeContato.Name = "txtNomeContato";
             this.txtNomeContato.Size = new System.Drawing.Size(458, 26);
-            this.txtNomeContato.TabIndex = 15;
+            this.txtNomeContato.TabIndex = 2;
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(195, 471);
+            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpar.Location = new System.Drawing.Point(195, 490);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 33);
-            this.btnLimpar.TabIndex = 16;
+            this.btnLimpar.Size = new System.Drawing.Size(78, 33);
+            this.btnLimpar.TabIndex = 7;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(276, 471);
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.Location = new System.Drawing.Point(279, 490);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(79, 33);
-            this.btnGuardar.TabIndex = 17;
+            this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(361, 471);
+            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAtualizar.Location = new System.Drawing.Point(364, 490);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(82, 33);
-            this.btnAtualizar.TabIndex = 18;
+            this.btnAtualizar.TabIndex = 9;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(449, 471);
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.Location = new System.Drawing.Point(452, 490);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(96, 33);
-            this.btnEliminar.TabIndex = 19;
+            this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnRecarregar
             // 
-            this.btnRecarregar.Location = new System.Drawing.Point(551, 471);
+            this.btnRecarregar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRecarregar.Location = new System.Drawing.Point(554, 490);
             this.btnRecarregar.Name = "btnRecarregar";
-            this.btnRecarregar.Size = new System.Drawing.Size(102, 33);
-            this.btnRecarregar.TabIndex = 20;
+            this.btnRecarregar.Size = new System.Drawing.Size(99, 33);
+            this.btnRecarregar.TabIndex = 11;
             this.btnRecarregar.Text = "Recarregar";
             this.btnRecarregar.UseVisualStyleBackColor = true;
             this.btnRecarregar.Click += new System.EventHandler(this.btnRecarregar_Click);
@@ -262,7 +288,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 511);
+            this.ClientSize = new System.Drawing.Size(797, 555);
             this.Controls.Add(this.btnRecarregar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAtualizar);

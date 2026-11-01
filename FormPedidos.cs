@@ -332,5 +332,10 @@ namespace ServiceTrack.Client
             // Obtém novamente os pedidos da API.
             await CarregarListaPedidos();
         }
+
+        private void txtDescricao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
