@@ -29,6 +29,20 @@
         private void InitializeComponent()
         {
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtEmailContato = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbPrioridade = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.txtNomeContato = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +56,7 @@
             this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvPedidos.BackgroundColor = System.Drawing.Color.White;
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedidos.Location = new System.Drawing.Point(139, 54);
+            this.dgvPedidos.Location = new System.Drawing.Point(195, 236);
             this.dgvPedidos.MultiSelect = false;
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
@@ -50,26 +64,190 @@
             this.dgvPedidos.RowHeadersWidth = 62;
             this.dgvPedidos.RowTemplate.Height = 28;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(472, 342);
+            this.dgvPedidos.Size = new System.Drawing.Size(419, 239);
             this.dgvPedidos.TabIndex = 0;
+            this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellClick);
             this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(139, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Título:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txtTitulo
+            // 
+            this.txtTitulo.Location = new System.Drawing.Point(195, 9);
+            this.txtTitulo.MaxLength = 255;
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(419, 26);
+            this.txtTitulo.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(106, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Descrição:";
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.Location = new System.Drawing.Point(195, 41);
+            this.txtDescricao.MaxLength = 255;
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescricao.Size = new System.Drawing.Size(419, 26);
+            this.txtDescricao.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(47, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Nome do contacto:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(51, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Email do contacto:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // txtEmailContato
+            // 
+            this.txtEmailContato.Location = new System.Drawing.Point(195, 102);
+            this.txtEmailContato.MaxLength = 255;
+            this.txtEmailContato.Name = "txtEmailContato";
+            this.txtEmailContato.Size = new System.Drawing.Size(419, 26);
+            this.txtEmailContato.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(109, 133);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 20);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Categoria:";
+            // 
+            // txtCategoria
+            // 
+            this.txtCategoria.Location = new System.Drawing.Point(195, 133);
+            this.txtCategoria.MaxLength = 50;
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(419, 26);
+            this.txtCategoria.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(109, 165);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Prioridade:";
+            // 
+            // cmbPrioridade
+            // 
+            this.cmbPrioridade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPrioridade.FormattingEnabled = true;
+            this.cmbPrioridade.Items.AddRange(new object[] {
+            "Baixa",
+            "Normal",
+            "Alta"});
+            this.cmbPrioridade.Location = new System.Drawing.Point(195, 162);
+            this.cmbPrioridade.Name = "cmbPrioridade";
+            this.cmbPrioridade.Size = new System.Drawing.Size(419, 28);
+            this.cmbPrioridade.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(126, 200);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 20);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Estado:";
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Aberto",
+            "Em curso",
+            "Resolvido"});
+            this.cmbEstado.Location = new System.Drawing.Point(195, 197);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(419, 28);
+            this.cmbEstado.TabIndex = 14;
+            // 
+            // txtNomeContato
+            // 
+            this.txtNomeContato.Location = new System.Drawing.Point(195, 70);
+            this.txtNomeContato.MaxLength = 255;
+            this.txtNomeContato.Name = "txtNomeContato";
+            this.txtNomeContato.Size = new System.Drawing.Size(419, 26);
+            this.txtNomeContato.TabIndex = 15;
             // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 487);
+            this.Controls.Add(this.txtNomeContato);
+            this.Controls.Add(this.cmbEstado);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cmbPrioridade);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtCategoria);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtEmailContato);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtDescricao);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtTitulo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvPedidos);
             this.Name = "FormPedidos";
             this.Text = "Gerir pedidos";
             this.Load += new System.EventHandler(this.FormPedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPedidos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtTitulo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtEmailContato;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCategoria;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbPrioridade;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.TextBox txtNomeContato;
     }
 }
