@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Itens de Solução/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="ServiceTrack.Client.csproj" Id="a4e443f5-c4b6-4927-8cbc-681c2249711e" />
 </Solution>
