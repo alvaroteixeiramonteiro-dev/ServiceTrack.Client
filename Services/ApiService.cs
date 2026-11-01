@@ -42,5 +42,14 @@ namespace ServiceTrack.Client.Services
                     $"Erro de conexão com a API: {ex.Message}", ex);
             }
         }
+
+        // POST: api/Pedidos — cria um novo pedido.
+        public static async Task<bool> CriarPedidoAsync(Pedido novoPedido)
+        {
+            var resposta = await _httpClient.PostAsJsonAsync(
+                "api/Pedidos", novoPedido);
+
+            return resposta.IsSuccessStatusCode;
+        }
     }
 }
