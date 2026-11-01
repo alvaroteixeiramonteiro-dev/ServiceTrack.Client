@@ -47,6 +47,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnRecarregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             this.dgvPedidos.RowHeadersWidth = 62;
             this.dgvPedidos.RowTemplate.Height = 28;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(419, 231);
+            this.dgvPedidos.Size = new System.Drawing.Size(458, 231);
             this.dgvPedidos.TabIndex = 0;
             this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellClick);
             this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -88,7 +89,7 @@
             this.txtTitulo.Location = new System.Drawing.Point(195, 9);
             this.txtTitulo.MaxLength = 255;
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(419, 26);
+            this.txtTitulo.Size = new System.Drawing.Size(458, 26);
             this.txtTitulo.TabIndex = 2;
             // 
             // label2
@@ -107,7 +108,7 @@
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescricao.Size = new System.Drawing.Size(419, 26);
+            this.txtDescricao.Size = new System.Drawing.Size(458, 26);
             this.txtDescricao.TabIndex = 4;
             // 
             // label3
@@ -135,7 +136,7 @@
             this.txtEmailContato.Location = new System.Drawing.Point(195, 102);
             this.txtEmailContato.MaxLength = 255;
             this.txtEmailContato.Name = "txtEmailContato";
-            this.txtEmailContato.Size = new System.Drawing.Size(419, 26);
+            this.txtEmailContato.Size = new System.Drawing.Size(458, 26);
             this.txtEmailContato.TabIndex = 8;
             // 
             // label5
@@ -152,7 +153,7 @@
             this.txtCategoria.Location = new System.Drawing.Point(195, 133);
             this.txtCategoria.MaxLength = 50;
             this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(419, 26);
+            this.txtCategoria.Size = new System.Drawing.Size(458, 26);
             this.txtCategoria.TabIndex = 10;
             // 
             // label6
@@ -174,7 +175,7 @@
             "Alta"});
             this.cmbPrioridade.Location = new System.Drawing.Point(195, 162);
             this.cmbPrioridade.Name = "cmbPrioridade";
-            this.cmbPrioridade.Size = new System.Drawing.Size(419, 28);
+            this.cmbPrioridade.Size = new System.Drawing.Size(458, 28);
             this.cmbPrioridade.TabIndex = 12;
             // 
             // label7
@@ -196,7 +197,7 @@
             "Resolvido"});
             this.cmbEstado.Location = new System.Drawing.Point(195, 197);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(419, 28);
+            this.cmbEstado.Size = new System.Drawing.Size(458, 28);
             this.cmbEstado.TabIndex = 14;
             // 
             // txtNomeContato
@@ -204,7 +205,7 @@
             this.txtNomeContato.Location = new System.Drawing.Point(195, 70);
             this.txtNomeContato.MaxLength = 255;
             this.txtNomeContato.Name = "txtNomeContato";
-            this.txtNomeContato.Size = new System.Drawing.Size(419, 26);
+            this.txtNomeContato.Size = new System.Drawing.Size(458, 26);
             this.txtNomeContato.TabIndex = 15;
             // 
             // btnLimpar
@@ -247,11 +248,22 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnRecarregar
+            // 
+            this.btnRecarregar.Location = new System.Drawing.Point(551, 471);
+            this.btnRecarregar.Name = "btnRecarregar";
+            this.btnRecarregar.Size = new System.Drawing.Size(102, 33);
+            this.btnRecarregar.TabIndex = 20;
+            this.btnRecarregar.Text = "Recarregar";
+            this.btnRecarregar.UseVisualStyleBackColor = true;
+            this.btnRecarregar.Click += new System.EventHandler(this.btnRecarregar_Click);
+            // 
             // FormPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 511);
+            this.Controls.Add(this.btnRecarregar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnGuardar);
@@ -301,5 +313,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnRecarregar;
     }
 }

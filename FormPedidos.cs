@@ -323,5 +323,14 @@ namespace ServiceTrack.Client
                     MessageBoxIcon.Error);
             }
         }
+
+        private async void btnRecarregar_Click(object sender, EventArgs e)
+        {
+            // Remove os dados da seleção anterior.
+            LimparCampos();
+
+            // Obtém novamente os pedidos da API.
+            await CarregarListaPedidos();
+        }
     }
 }
