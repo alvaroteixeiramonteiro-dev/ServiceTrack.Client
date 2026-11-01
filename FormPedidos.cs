@@ -262,5 +262,66 @@ namespace ServiceTrack.Client
                     MessageBoxIcon.Error);
             }
         }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (_pedidoIdSelecionado == 0)
+            {
+                MessageBox.Show(
+                    "Selecione um pedido na grelha antes de eliminar!",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // Guarda o ID do pedido cuja eliminação será confirmada.
+            int idParaEliminar = _pedidoIdSelecionado;
+
+            var confirmar = MessageBox.Show(
+                $"Deseja eliminar o pedido '{txtTitulo.Text}'?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmar != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                bool sucesso = await ApiService.EliminarPedidoAsync(idParaEliminar);
+
+                if (sucesso)
+                {
+                    MessageBox.Show(
+                        "Pedido eliminado com sucesso!",
+                        "Sucesso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    LimparCampos();
+                    await CarregarListaPedidos();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Não foi possível eliminar o pedido. Verifique se ainda existe.",
+                        "Erro",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Erro de comunicação com a API",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -61,5 +61,13 @@ namespace ServiceTrack.Client.Services
 
             return resposta.IsSuccessStatusCode;
         }
+
+        // DELETE: api/Pedidos/{id} — elimina um pedido.
+        public static async Task<bool> EliminarPedidoAsync(int id)
+        {
+            var resposta = await _httpClient.DeleteAsync($"api/Pedidos/{id}");
+
+            return resposta.IsSuccessStatusCode;
+        }
     }
 }
