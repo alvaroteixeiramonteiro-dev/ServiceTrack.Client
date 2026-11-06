@@ -17,6 +17,41 @@ namespace ServiceTrack.Client
         public principal()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Normal;
+            StartPosition = FormStartPosition.CenterScreen;
+
+            // Garante uma única associação ao evento.
+            Resize -= Principal_Resize;
+            Resize += Principal_Resize;
+        }
+        private void AjustarJanelasMdi()
+        {
+            foreach (Control controlo in Controls)
+            {
+                if (controlo is MdiClient areaMdi)
+                {
+                    if (areaMdi.ClientSize.Width <= 0 ||
+                        areaMdi.ClientSize.Height <= 0)
+                    {
+                        return;
+                    }
+
+                    foreach (Form janela in MdiChildren)
+                    {
+                        janela.MinimumSize = Size.Empty;
+                        janela.Location = Point.Empty;
+
+                        janela.Size = new Size(
+                            Math.Min(819, areaMdi.ClientSize.Width),
+                            Math.Min(611, areaMdi.ClientSize.Height)
+                        );
+                    }
+                }
+            }
+        }
+        private void Principal_Resize(object sender, EventArgs e)
+        {
+            AjustarJanelasMdi();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -111,10 +146,11 @@ namespace ServiceTrack.Client
 
         private void gerirPedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             FormPedidos formPedidos = new FormPedidos();
             formPedidos.MdiParent = this;
             formPedidos.Show();
+
+            AjustarJanelasMdi();
         }
     }
 }
