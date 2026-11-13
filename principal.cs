@@ -22,7 +22,17 @@ namespace ServiceTrack.Client
 
             // Garante uma única associação ao evento.
             Resize -= Principal_Resize;
-            Resize += Principal_Resize;
+
+            // Ajusta os formulários quando a área MDI muda de tamanho.
+            foreach (Control controlo in Controls)
+            {
+                if (controlo is MdiClient areaMdi)
+                {
+                    areaMdi.SizeChanged += (sender, e) => AjustarJanelasMdi();
+                }
+            }
+
+            Shown += (sender, e) => AjustarJanelasMdi();
         }
         private void AjustarJanelasMdi()
         {
@@ -30,6 +40,7 @@ namespace ServiceTrack.Client
             {
                 if (controlo is MdiClient areaMdi)
                 {
+                    // Não ajusta enquanto a área não tiver dimensões válidas.
                     if (areaMdi.ClientSize.Width <= 0 ||
                         areaMdi.ClientSize.Height <= 0)
                     {
@@ -38,20 +49,23 @@ namespace ServiceTrack.Client
 
                     foreach (Form janela in MdiChildren)
                     {
-                        janela.MinimumSize = Size.Empty;
-                        janela.Location = Point.Empty;
+                        if (janela is FormPedidos &&
+                            janela.WindowState == FormWindowState.Normal)
+                        {
+                            janela.MinimumSize = Size.Empty;
 
-                        janela.Size = new Size(
-                            Math.Min(819, areaMdi.ClientSize.Width),
-                            Math.Min(611, areaMdi.ClientSize.Height)
-                        );
+                            janela.SetBounds(
+                                0,
+                                0,
+                                Math.Min(819, areaMdi.ClientSize.Width),
+                                Math.Min(611, areaMdi.ClientSize.Height));
+                        }
                     }
                 }
             }
         }
         private void Principal_Resize(object sender, EventArgs e)
         {
-            AjustarJanelasMdi();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
