@@ -1,9 +1,9 @@
-﻿using System;
+﻿using ServiceTrack.Client.Models;
+using ServiceTrack.Client.Services;
+using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ServiceTrack.Client.Services;
-using ServiceTrack.Client.Models;
-using System.Drawing;
 
 namespace ServiceTrack.Client
 {
@@ -14,16 +14,16 @@ namespace ServiceTrack.Client
         public FormPedidos()
         {
             InitializeComponent();
-            
             // Define os valores iniciais para um novo pedido.
             cmbPrioridade.SelectedItem = "Normal";
             cmbEstado.SelectedItem = "Aberto";
             ConfigurarLayout();
+            AplicarEstilo();
         }
         private void ConfigurarLayout()
         {
             SuspendLayout();
-            
+
             // Painel dos campos: labels à esquerda e campos à direita.
             var painelCampos = new TableLayoutPanel
             {
@@ -86,7 +86,7 @@ namespace ServiceTrack.Client
             };
 
             Button[] botoes =
-            {   
+            {
                 btnLimpar, btnGuardar, btnAtualizar,btnEliminar, btnRecarregar
             };
 
@@ -94,13 +94,6 @@ namespace ServiceTrack.Client
             {
                 botao.Dock = DockStyle.None;
                 botao.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-
-                // Ajusta o tamanho ao texto para evitar cortes.
-                botao.AutoSize = true;
-                botao.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                botao.MinimumSize = new Size(90, 34);
-                botao.Padding = new Padding(8, 4, 8, 4);
-                botao.Margin = new Padding(0, 0, 8, 6);
 
                 flpBotoes.Controls.Add(botao);
             }
@@ -110,17 +103,11 @@ namespace ServiceTrack.Client
             dgvPedidos.Margin = new Padding(0, 8, 0, 0);
             // Reserva altura para apresentar os pedidos.
             dgvPedidos.MinimumSize = new Size(0, 150);
-            
+
             var tlpPrincipal = new TableLayoutPanel
             {
                 Name = "tlpPrincipal"
             };
-
-            // Reorganiza o painel principal existente.
-            // Os campos e botões já foram transferidos para os novos painéis.
-            tlpPrincipal.Controls.Clear();
-            tlpPrincipal.ColumnStyles.Clear();
-            tlpPrincipal.RowStyles.Clear();
 
             tlpPrincipal.AutoSize = true;
             tlpPrincipal.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -152,17 +139,158 @@ namespace ServiceTrack.Client
 
             ResumeLayout(true);
         }
+        private void AplicarEstilo()
+        {
+            var fonteInterface = new Font("Segoe UI", 9F);
+            BackColor = Color.FromArgb(243, 244, 246);
+            ForeColor = Color.FromArgb(31, 41, 55);
+
+            // Aplica a fonte aos controlos, sem alterar a fonte do formulário.
+
+            Control[] controlos =
+            {
+                label1, label2, label3, label4, label5, label6, label7,
+                txtTitulo, txtDescricao, txtNomeContato, txtEmailContato,
+                txtCategoria, cmbPrioridade, cmbEstado, dgvPedidos
+            };
+
+            foreach (Control controlo in controlos)
+            {
+                controlo.Font = fonteInterface;
+            }
+
+            Button[] botoes =
+            {
+                btnLimpar, btnGuardar, btnAtualizar,
+                btnEliminar, btnRecarregar
+            };
+
+            foreach (Button botao in botoes)
+            {
+                botao.Font = fonteInterface;
+
+                botao.FlatStyle = FlatStyle.Flat;
+                botao.UseVisualStyleBackColor = false;
+
+                botao.AutoSize = true;
+                botao.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                botao.MinimumSize = new Size(96, 36);
+                botao.Padding = new Padding(10, 4, 10, 4);
+                botao.Margin = new Padding(0, 0, 8, 8);
+
+                botao.BackColor = Color.White;
+                botao.ForeColor = Color.FromArgb(55, 65, 81);
+
+                botao.FlatAppearance.BorderSize = 1;
+                botao.FlatAppearance.BorderColor =
+                    Color.FromArgb(209, 213, 219);
+
+                botao.FlatAppearance.MouseOverBackColor =
+                    Color.FromArgb(243, 244, 246);
+
+                botao.FlatAppearance.MouseDownBackColor =
+                    Color.FromArgb(229, 231, 235);
+
+                botao.Cursor = Cursors.Hand;
+            }
+
+            // Ação principal.
+            btnGuardar.BackColor = Color.FromArgb(37, 99, 235);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.FlatAppearance.BorderColor = Color.FromArgb(37, 99, 235);
+            btnGuardar.FlatAppearance.MouseOverBackColor = Color.FromArgb(29, 78, 216);
+            btnGuardar.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 64, 175);
+
+            // Eliminação: destaque discreto em vermelho.
+            btnEliminar.ForeColor = Color.FromArgb(185, 28, 28);
+            btnEliminar.FlatAppearance.BorderColor = Color.FromArgb(254, 202, 202);
+            btnEliminar.FlatAppearance.MouseOverBackColor = Color.FromArgb(254, 242, 242);
+            btnEliminar.FlatAppearance.MouseDownBackColor = Color.FromArgb(254, 226, 226);
+
+            // Aspeto geral da grelha.
+            dgvPedidos.BackgroundColor = Color.White;
+            dgvPedidos.BorderStyle = BorderStyle.None;
+            dgvPedidos.RowHeadersVisible = false;
+
+            dgvPedidos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgvPedidos.GridColor = Color.FromArgb(229, 231, 235);
+
+            // Cabeçalhos.
+            dgvPedidos.EnableHeadersVisualStyles = false;
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(229, 231, 235);
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(31, 41, 55);
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(229, 231, 235);
+
+            dgvPedidos.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(31, 41, 55);
+
+            dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            // Linhas e seleção.
+            dgvPedidos.DefaultCellStyle.BackColor = Color.White;
+            dgvPedidos.DefaultCellStyle.ForeColor = Color.FromArgb(31, 41, 55);
+
+            dgvPedidos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(219, 234, 254);
+
+            dgvPedidos.DefaultCellStyle.SelectionForeColor = Color.FromArgb(30, 58, 138);
+
+            dgvPedidos.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(249, 250, 251);
+
+            dgvPedidos.DefaultCellStyle.Padding = new Padding(4);
+            dgvPedidos.RowTemplate.Height = 34;
+
+            // Aplica os títulos quando as colunas forem geradas pelos dados.
+            dgvPedidos.DataBindingComplete += (sender, e) => FormatarColunas();
+        }
+        private void FormatarColunas()
+        {
+            // Protege o método durante a limpeza do DataSource.
+            if (!dgvPedidos.Columns.Contains("Id"))
+            {
+                return;
+            }
+
+            dgvPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
+            dgvPedidos.Columns["Id"].HeaderText = "ID";
+            dgvPedidos.Columns["Titulo"].HeaderText = "Título";
+            dgvPedidos.Columns["Descricao"].HeaderText = "Descrição";
+            dgvPedidos.Columns["NomeContato"].HeaderText = "Nome do contacto";
+            dgvPedidos.Columns["EmailContato"].HeaderText = "Email do contacto";
+            dgvPedidos.Columns["Categoria"].HeaderText = "Categoria";
+            dgvPedidos.Columns["Prioridade"].HeaderText = "Prioridade";
+            dgvPedidos.Columns["Estado"].HeaderText = "Estado";
+
+            string[] datas = { "CriadoEm", "AtualizadoEm", "ResolvidoEm" };
+            string[] titulos = { "Criado em", "Atualizado em", "Resolvido em" };
+
+            for (int i = 0; i < datas.Length; i++)
+            {
+                var coluna = dgvPedidos.Columns[datas[i]];
+
+                coluna.HeaderText = titulos[i];
+                coluna.DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                coluna.DefaultCellStyle.NullValue = "—";
+            }
+
+            // Evita que descrições longas produzam colunas enormes.
+            dgvPedidos.Columns["Titulo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvPedidos.Columns["Titulo"].Width = 220;
+
+            dgvPedidos.Columns["Descricao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvPedidos.Columns["Descricao"].Width = 280;
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
-
         // Carrega os pedidos ao abrir o formulário.
         private async void FormPedidos_Load(object sender, EventArgs e)
         {
             await CarregarListaPedidos();
         }
-
         // Obtém os pedidos da API e apresenta-os na grelha.
         private async Task CarregarListaPedidos()
         {
@@ -181,22 +309,18 @@ namespace ServiceTrack.Client
                     MessageBoxIcon.Error);
             }
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
-
         private void CarregarDadosSelecionados(int rowIndex)
         {
             // Ignora cliques nos cabeçalhos ou fora das linhas de dados.
@@ -221,7 +345,6 @@ namespace ServiceTrack.Client
                 cmbEstado.SelectedItem = pedido.Estado;
             }
         }
-
         private void dgvPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             CarregarDadosSelecionados(e.RowIndex);
@@ -244,12 +367,10 @@ namespace ServiceTrack.Client
             dgvPedidos.ClearSelection();
             txtTitulo.Focus();
         }
-
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
-
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             // Verifica os campos obrigatórios antes de chamar a API.
@@ -314,7 +435,6 @@ namespace ServiceTrack.Client
                     MessageBoxIcon.Error);
             }
         }
-
         private async void btnAtualizar_Click(object sender, EventArgs e)
         {
             // Exige a seleção de um pedido antes da atualização.
@@ -396,7 +516,6 @@ namespace ServiceTrack.Client
                 );
             }
         }
-
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
             if (_pedidoIdSelecionado == 0)
@@ -459,7 +578,6 @@ namespace ServiceTrack.Client
                     MessageBoxIcon.Error);
             }
         }
-
         private async void btnRecarregar_Click(object sender, EventArgs e)
         {
             // Remove os dados da seleção anterior.
@@ -468,15 +586,11 @@ namespace ServiceTrack.Client
             // Obtém novamente os pedidos da API.
             await CarregarListaPedidos();
         }
-
         private void txtDescricao_TextChanged(object sender, EventArgs e)
         {
-
         }
-
         private void FormPedidos_ResizeBegin(object sender, EventArgs e)
         {
-            
         }
     }
 }

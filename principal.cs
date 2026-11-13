@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ServiceTrack.Client
@@ -17,6 +11,7 @@ namespace ServiceTrack.Client
         public principal()
         {
             InitializeComponent();
+            AplicarEstiloPrincipal();
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterScreen;
 
@@ -34,6 +29,34 @@ namespace ServiceTrack.Client
 
             Shown += (sender, e) => AjustarJanelasMdi();
         }
+        // Uniformiza as cores e fontes da janela principal.
+        private void AplicarEstiloPrincipal()
+        {
+            var fonteInterface = new Font("Segoe UI", 9F);
+            Color fundo = Color.FromArgb(243, 244, 246);
+            Color texto = Color.FromArgb(31, 41, 55);
+
+            menuStrip.Font = fonteInterface;
+            menuStrip.BackColor = Color.White;
+            menuStrip.ForeColor = texto;
+
+            toolStrip.Font = fonteInterface;
+            toolStrip.BackColor = fundo;
+            toolStrip.ForeColor = texto;
+
+            statusStrip.Font = fonteInterface;
+            statusStrip.BackColor = fundo;
+            statusStrip.ForeColor = texto;
+
+            foreach (Control controlo in Controls)
+            {
+                if (controlo is MdiClient areaMdi)
+                {
+                    areaMdi.BackColor = Color.FromArgb(229, 231, 235);
+                }
+            }
+        }
+
         private void AjustarJanelasMdi()
         {
             foreach (Control controlo in Controls)
