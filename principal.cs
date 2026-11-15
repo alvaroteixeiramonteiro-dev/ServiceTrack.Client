@@ -186,7 +186,6 @@ namespace ServiceTrack.Client
             FormPedidos formPedidos = new FormPedidos();
             formPedidos.MdiParent = this;
             formPedidos.Show();
-
             AjustarJanelasMdi();
         }
     }
